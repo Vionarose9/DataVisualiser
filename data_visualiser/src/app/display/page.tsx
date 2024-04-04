@@ -7,7 +7,10 @@ import {
     TableHead,
     TableHeader,
     TableRow,
+
   } from "@/components/ui/table"
+  import { Button } from "@/components/ui/button"
+  import Link from "next/link"
   
   const invoices = [
     {
@@ -56,16 +59,27 @@ import {
   
   export default function TableDemo() {
     return (
-      <Table>
+      <>
+      <div className="py-[1rem] ml-[2rem] mr-[10rem]">
+        <Link href="/upload">
+       <Button  className="p-[1.5rem]" variant="default">Add </Button>
+       </Link>
+       </div>
+      <div className="py-[1rem] ml-[10rem] mr-[10rem]">
+       
+      <Table className="w-full border border-collapse border-gray-800">
         <TableCaption>A list of Researches in PES University Ecity</TableCaption>
+       
         <TableHeader>
           <TableRow>
+            
             <TableHead className="w-[100px]">Invoice</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Method</TableHead>
             <TableHead className="text-right">Amount</TableHead>
           </TableRow>
         </TableHeader>
+      
         <TableBody>
           {invoices.map((invoice) => (
             <TableRow key={invoice.invoice}>
@@ -83,6 +97,8 @@ import {
           </TableRow>
         </TableFooter>
       </Table>
+      </div>
+      </>
     )
   }
   
